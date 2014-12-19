@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pkill -f 'python cleanmatches.py'
+pkill -f 'python matchmaker.py'
+pkill -u nobody

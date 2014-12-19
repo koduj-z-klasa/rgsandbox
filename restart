@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ ! -z "$1" ]; then
+    pgrep -f 'python matchmaker.py' > /dev/null
+    if [ $? -eq 0 ]; then
+        exit
+    fi
+    echo 'Matchmaker process not found, restarting matches...'
+fi
+pkill -f 'python cleanmatches.py'
+pkill -f 'python matchmaker.py'
+pkill -u nobody
+python cleanmatches.py
+nohup python matchmaker.py &> tmp/matchmaker.log &
