@@ -94,8 +94,9 @@ def try_create_matches(db):
         matched_ids = []
         for id in matched:
             matched_ids.append(str(id))
-        db.update('robots', where='id in (' + ','.join(matched_ids) + ')',
-                  priority=0)
+        if matched_ids:
+            db.update('robots', where='id in (' + ','.join(matched_ids) + ')',
+                      priority=0)
         db.query('''UPDATE robots SET priority=priority+$p
                     WHERE compiled and passed and not disabled''',
                     vars={'p': M_INC})
