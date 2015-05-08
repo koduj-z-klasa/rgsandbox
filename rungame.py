@@ -242,7 +242,8 @@ def proxy_process_routine(user_code, queue_in, queue_out, queue_output):
             'multiprocessing',
             'os',
             'pdb',
-            'posix')
+            'posix',
+            'dbcon')
 
         # No sleeping!
         time.sleep = lambda s: 0
