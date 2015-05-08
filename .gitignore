@@ -1,2 +1,5 @@
 *.pyc
 tmp/matchmaker.log
+dbcon.py
+private/*
+
