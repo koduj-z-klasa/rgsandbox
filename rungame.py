@@ -7,7 +7,7 @@ import traceback
 import ast
 import time
 import resource
-import pkg_resources
+from pkg_resources import resource_filename
 import multiprocessing as mp
 import multiprocessing.queues as mpq
 import multiprocessing.managers as mpm
@@ -33,7 +33,7 @@ SYMMETRIC = True
 # load modules for the user to use
 sys.modules['rg'] = sys.modules['rgkit.rg']
 sys.modules['settings'] = sys.modules['rgkit.settings']
-MAP_FILENAME = pkg_resources.resource_filename(
+MAP_FILENAME = resource_filename(
     'rgkit', 'maps/default.py')
 
 
@@ -242,7 +242,8 @@ def proxy_process_routine(user_code, queue_in, queue_out, queue_output):
             'multiprocessing',
             'os',
             'pdb',
-            'posix')
+            'posix',
+            'dbcon')
 
         # No sleeping!
         time.sleep = lambda s: 0
