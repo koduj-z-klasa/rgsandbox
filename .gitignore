@@ -1,3 +1,8 @@
 *.pyc
 tmp/matchmaker.log
 dbcon.py
+<<<<<<< HEAD
+=======
+private/*
+
+>>>>>>> 32667857ac87bc77141d8015774b4c388c341a27
